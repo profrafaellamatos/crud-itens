@@ -1,0 +1,13 @@
+body {
+    background-color: #f8d7da;
+    /* Cor de fundo da paleta de warning */
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.btn-warning {
+    color: #fff;
+    /* Cor do texto para botões warning */
+}
