@@ -1,0 +1,25 @@
+{
+  "name": "crud-itens",
+  "version": "1.0.0",
+  "description": "Este é um projeto simples de CRUD (Create, Read, Update, Delete) com um frontend básico usando HTML, CSS e Bootstrap.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/profrafaellamatos/crud-itens.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/profrafaellamatos/crud-itens/issues"
+  },
+  "homepage": "https://github.com/profrafaellamatos/crud-itens#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jest": "^29.7.0",
+    "mysql2": "^3.6.1"
+  }
+}
