@@ -2,7 +2,7 @@
   "name": "crud-itens",
   "version": "1.0.0",
   "description": "Este é um projeto simples de CRUD (Create, Read, Update, Delete) com um frontend básico usando HTML, CSS e Bootstrap.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "jest"
   },
