@@ -52,7 +52,7 @@ jobs:
 
     - name: Configurar Git
       run: |
-        git config --global user.name "prof.rafaella.matos
+        git config --global user.name "prof.rafaella.matos"
         git config --global user.email "prof.rafaella.matos@gmail.com"
 
     - name: Criar Branch e Commit
