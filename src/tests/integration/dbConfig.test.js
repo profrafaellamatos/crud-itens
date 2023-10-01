@@ -14,6 +14,8 @@ describe('Teste de Conexão com o Banco de Dados', () => {
   });
 
   afterAll(async () => {
+    // Garantir que todas as consultas foram concluídas
+    await db.query('SELECT 1');
     // Fechar a conexão após os testes
     await db.end();
   });
