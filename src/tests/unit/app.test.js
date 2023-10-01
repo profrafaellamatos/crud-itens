@@ -1,9 +1,12 @@
+// app.test.js
 const request = require('supertest');
-const { app, server } = require('../../../app'); // Importe o objeto app e server
+const { app, server, pool } = require('../../../app'); // Importe o objeto app, server e pool
 
-afterAll((done) => {
+afterAll(async () => {
   // Fecha o servidor após todos os testes
-  server.close(done);
+  await new Promise((resolve) => server.close(resolve));
+  // Fecha a conexão do pool
+  await pool.end();
 });
 
 describe('Testes de Rotas', () => {
