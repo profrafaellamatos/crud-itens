@@ -66,6 +66,4 @@ jobs:
 
     - name: Criar Pull Request
       run: |
-        curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -d '{"title": "Automated Pull Request", "head": "automated-pr-branch", "base": "main"}' \
-          https://api.github.com/repos/${{ github.repository }}/pulls
+        git push origin main
