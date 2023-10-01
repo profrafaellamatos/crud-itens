@@ -18,6 +18,8 @@ app.get('/', (req, res) => {
 });
 
 // Inicie o servidor
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Servidor iniciado na porta ${port}`);
 });
+
+module.exports = {app, server}
