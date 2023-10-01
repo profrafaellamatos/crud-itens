@@ -38,32 +38,4 @@ jobs:
     - name: Executar Testes
       run: npm run test
 
-  create-pr:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout do Código
-      uses: actions/checkout@v3
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-
-    - name: Configurar Git
-      run: |
-        git config --global user.name "prof.rafaella.matos"
-        git config --global user.email "prof.rafaella.matos@gmail.com"
-
-    - name: Criar Branch e Commit
-      run: |
-        git checkout -b automated-pr-branch
-        git add .
-        git commit -m "Pull Request automatizado"
-
-    - name: Push para o Repositório Remoto
-      run: git push origin automated-pr-branch
-
-    - name: Criar Pull Request
-      run: |
-        git push origin main
+  

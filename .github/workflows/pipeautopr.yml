@@ -1,0 +1,45 @@
+name: Pipeline de Pull Request Automatizado - CRUD Itens
+
+on:
+  push:
+    branches:
+      - backend
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: "123456"
+          MYSQL_DATABASE: crud_itens_db
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v3
+
+    - name: Configurar Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Instalar dependências
+      run: npm install
+
+    - name: CCriar Pull Request
+      if: success()
+      run: |
+        git config --global user.name "prof.rafaella.matos"
+        git config --global user.email "prof.rafaella.matos@gmail.com"
+        git checkout -b automated-pr-branch
+        git add .
+        git commit -m "Pull Request Automatizado"
+        git push origin automated-pr-branch
+        curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -d '{"title": "Automated Pull Request", "head": "automated-pr-branch", "base": "main"}' \
+          https://api.github.com/repos/${{ github.repository }}/pulls
